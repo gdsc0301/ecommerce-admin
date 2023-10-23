@@ -30,8 +30,6 @@ const ProductTable = (props: {products: Product[] | undefined, mutator: KeyedMut
     appDispatch(openProductModal());
   }
 
-  const isMobile = window?.innerWidth < 1024;
-
   return (
     <Table
       aria-label="Products table"
@@ -40,8 +38,8 @@ const ProductTable = (props: {products: Product[] | undefined, mutator: KeyedMut
         pages > 1 ? (
           <div className="sticky bottom-0 left-0 w-full flex justify-center">
             <Pagination
-              isCompact={isMobile}
-              showControls={!isMobile}
+              isCompact
+              showControls={false}
               showShadow
               color="danger"
               page={page}

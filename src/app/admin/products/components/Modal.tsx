@@ -26,11 +26,7 @@ const ProductModal = (props: {products: Product[] | undefined, mutator: KeyedMut
 
   const close = () => {
     if(product.id) {
-      console.log('Update product: ', product);
-      
       Products.update(product).then((updatedItem: Product) => {
-        console.log('Updated item: ', updatedItem);
-        
         props.mutator(
           [
             ...(props.products ? props.products.filter(item => item.id !== updatedItem.id) : []),
@@ -39,9 +35,7 @@ const ProductModal = (props: {products: Product[] | undefined, mutator: KeyedMut
         );
       })
     }else {
-      console.log('Create product: ', product);
       Products.create(product).then(updatedItem => {
-        console.log('Created item: ', updatedItem);
         props.mutator([...props.products || [], updatedItem]);
       });
     }

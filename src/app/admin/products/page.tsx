@@ -9,7 +9,7 @@ import useSWR from "swr";
 import { Button } from "@nextui-org/react";
 import { openProductModal, setProduct } from "./slices/Modal";
 import { Add } from "@mui/icons-material";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const ProductsPage = () => {
   const appDispatch = useAppDispatch();
