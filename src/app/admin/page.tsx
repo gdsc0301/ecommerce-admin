@@ -1,7 +1,12 @@
+import { redirect } from "next/navigation";
+import VisieLogo from "./components/parts/VisieLogo";
+
 const Admin = () => {
+  redirect('/admin/products');
+
   return (
     <div>
-      <h1>Admin Page</h1>
+      <VisieLogo />
     </div>
   )
 }

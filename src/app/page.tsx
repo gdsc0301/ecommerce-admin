@@ -1,7 +1,5 @@
+import { redirect } from "next/navigation";
+
 export default async function Home() {
-  return (
-    <>
-      Some text
-    </>
-  )
+  redirect('/admin/products');
 }
