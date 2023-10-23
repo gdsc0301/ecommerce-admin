@@ -10,7 +10,6 @@ import { useAppDispatch } from "../../store";
 import { openProductModal, setProduct } from "../slices/Modal";
 import { KeyedMutator } from "swr";
 import { useMemo, useState } from "react";
-import ProductFilter from "./Filter";
 
 const ProductTable = (props: {products: Product[] | undefined, mutator: KeyedMutator<Product[]>, loading: boolean}) => {
   const appDispatch = useAppDispatch();
@@ -31,7 +30,7 @@ const ProductTable = (props: {products: Product[] | undefined, mutator: KeyedMut
     appDispatch(openProductModal());
   }
 
-  const isMobile = window.innerWidth < 1024;
+  const isMobile = window?.innerWidth < 1024;
 
   return (
     <Table
