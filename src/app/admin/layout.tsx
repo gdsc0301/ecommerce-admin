@@ -1,6 +1,8 @@
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { Metadata } from 'next'
+import { useRouter } from 'next/router'
+import { redirect } from 'next/navigation'
 
 export const metadata: Metadata = {
   title: 'Visie Ecommerce - Products',
@@ -12,6 +14,7 @@ export const metadata: Metadata = {
 }
 
 const Layout = ({ children }: {children: React.ReactNode}) => {
+
   return (
     <>
       <Header/>
