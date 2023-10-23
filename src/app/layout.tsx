@@ -13,13 +13,17 @@ export const metadata: Metadata = {
   viewport: {
     width: 'device-width',
     initialScale: 1,
-  }
+  },
+  authors: [{
+    name: 'Guilherme Carvalho',
+    url: 'https://www.linkedin.com/in/guilherme-c/'
+  }]
 }
 
 export default async function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
-      <body className={`${mainFontFamily.className} relative pt-[102px] lg:pt-36 pb-[102px] lg:pb-[104px] min-h-screen`}>
+      <body className={`${mainFontFamily.className} relative pb-[102px] lg:pb-[104px] min-h-screen`}>
         <Providers>
           {children}
         </Providers>

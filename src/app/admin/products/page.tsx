@@ -9,6 +9,7 @@ import useSWR from "swr";
 import { Button } from "@nextui-org/react";
 import { openProductModal, setProduct } from "./slices/Modal";
 import { Add } from "@mui/icons-material";
+import { useEffect } from "react";
 
 const ProductsPage = () => {
   const appDispatch = useAppDispatch();
@@ -18,6 +19,14 @@ const ProductsPage = () => {
     appDispatch(setProduct({} as Product));
     appDispatch(openProductModal());
   }
+
+  useEffect(() => {
+    // identify dark mode
+    const darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    }
+  }, []);
 
   return (
     <>

@@ -1,5 +1,5 @@
 body {
-  header.fixed {
+  header {
     .visieLogo {
       @apply relative w-fit;
 
@@ -7,7 +7,7 @@ body {
         content: 'CMS';
         @apply
           absolute -bottom-3 right-0
-          text-black text-xs;
+          light:text-black dark:text-gray-400 text-xs;
       }
     }
   }

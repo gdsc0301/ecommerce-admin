@@ -31,19 +31,23 @@ const ProductTable = (props: {products: Product[] | undefined, mutator: KeyedMut
     appDispatch(openProductModal());
   }
 
+  const isMobile = window.innerWidth < 1024;
+
   return (
     <Table
       aria-label="Products table"
       // topContent={<ProductFilter />} // Under construction
       bottomContent={
         pages > 1 ? (
-          <div className="flex justify-center">
+          <div className="sticky bottom-0 left-0 w-full flex justify-center">
             <Pagination
-              showControls
+              isCompact={isMobile}
+              showControls={!isMobile}
               showShadow
               color="danger"
               page={page}
               total={pages}
+              
               onChange={page => setPage(page)}
               />
           </div>
