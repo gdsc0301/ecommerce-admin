@@ -1,0 +1,14 @@
+body {
+  header.fixed {
+    .visieLogo {
+      @apply relative w-fit;
+
+      &::after {
+        content: 'CMS';
+        @apply
+          absolute -bottom-3 right-0
+          text-black text-xs;
+      }
+    }
+  }
+}

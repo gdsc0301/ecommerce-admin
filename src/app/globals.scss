@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  body {
+    @apply
+      antialiased
+      text-davy-gray;
+  
+    div {
+      @apply block;
+    }
+  }
+}

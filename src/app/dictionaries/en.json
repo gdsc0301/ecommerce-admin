@@ -1,0 +1,14 @@
+{
+  "Products"  : "Products",
+  "Orders"    : "Orders",
+  "Analytics" : "Analytics",
+  "View Store": "View Store",
+  "Name"      : "Name",
+  "Price"     : "Price",
+  "discount"  : "Discount",
+  "Stock"     : "Stock",
+  "Category"  : "Category",
+  "Sale Price": "Sale Price",
+  "Actions"   : "Actions",
+  "Add Product": "Add Product"
+}

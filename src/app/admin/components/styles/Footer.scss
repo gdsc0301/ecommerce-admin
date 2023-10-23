@@ -1,0 +1,9 @@
+footer {
+  a[href] {
+    @apply
+      duration-[200ms]
+      underline
+      decoration-white/0
+      hover:decoration-white/100;
+  }
+}
