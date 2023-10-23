@@ -36,3 +36,4 @@ next-env.d.ts
 
 #Bun lock file
 bun.lockb
+.vscode/launch.json

@@ -12,16 +12,12 @@ const slice = createSlice({
   name: 'productModal',
   initialState: initialState,
   reducers: {
-    open: state => {state.isOpen = true},
-    close: state => {state.isOpen = false},
     setNewImage: (state, action: {payload: string}) => {state.newImage = action.payload},
 
     setLoading: (state, action: {payload: boolean}) => {state.loading = action.payload},
 
-    setOpen: (state, action: {payload: boolean}) => void (state.isOpen = action.payload),
-    setProduct: (state, action: {payload: Product}) => {
-      state.product = action.payload;
-    },
+    setProduct: (state, action: {payload: Product}) => {state.product = action.payload},
+
     setProductField: (state, action: {payload: {field: keyof typeof state.product, value: string | string[] | number}}) => {
       state.product = {...state.product, [action.payload.field]: action.payload.value};
     },
@@ -36,13 +32,11 @@ const slice = createSlice({
 
 export { slice as productModalSlice };
 export const {
-  open: openProductModal,
-  close: closeProductModal,
-  setNewImage: setProductModalNewImage,
-  addProductImage: addProductModalImage,
-  removeProductImage: removeProductModalImage,
-  setLoading: setModalLoading,
-  setProduct: setModalProduct,
-  setProductField: setModalProductField,
+  setNewImage: setProductNewImage,
+  addProductImage: addProductImage,
+  removeProductImage: removeProductImage,
+  setLoading,
+  setProduct,
+  setProductField,
 } = slice.actions;
 export default slice.reducer;

@@ -7,13 +7,16 @@ import Products, { Product } from "../models/Products";
 import Price from "../models/Price";
 import { useAppDispatch } from "../../store";
 
-import { openProductModal, setProduct } from "../slices/Modal";
+import { openProductModal, setModalProduct } from "../slices/Modal";
 import { KeyedMutator } from "swr";
 import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const ProductTable = (props: {products: Product[] | undefined, mutator: KeyedMutator<Product[]>, loading: boolean}) => {
   const appDispatch = useAppDispatch();
   const [page, setPage] = useState(1);
+
+  const router  = useRouter()
   
   const rowsPerPage = 8;
   const pages = Math.ceil((props.products?.length || 0) / rowsPerPage);
@@ -25,8 +28,8 @@ const ProductTable = (props: {products: Product[] | undefined, mutator: KeyedMut
     })
   }
 
-  const editProduct = (product: Product) => {
-    appDispatch(setProduct(product));
+  const openEditModal = (product: Product) => {
+    appDispatch(setModalProduct(product));
     appDispatch(openProductModal());
   }
 
@@ -34,8 +37,14 @@ const ProductTable = (props: {products: Product[] | undefined, mutator: KeyedMut
     <Table
       aria-label="Products table"
       // topContent={<ProductFilter />} // Under construction
-      bottomContent={
-        pages > 1 ? (
+      color="default"
+      selectionMode="single"
+      onSelectionChange={(selected) => {
+        console.log(Object.values(selected)[0]);
+        
+        router.push(`/admin/products/${Object.values(selected)[0]}`)
+      }}
+      bottomContent={pages > 1 ? (
           <div className="sticky bottom-0 left-0 w-full flex justify-center">
             <Pagination
               isCompact
@@ -48,8 +57,7 @@ const ProductTable = (props: {products: Product[] | undefined, mutator: KeyedMut
               onChange={page => setPage(page)}
               />
           </div>
-        ) : ''
-      }
+      ) : ''}
     >
       <TableHeader>
         <TableColumn><_e>Name</_e></TableColumn>
@@ -83,7 +91,7 @@ const ProductTable = (props: {products: Product[] | undefined, mutator: KeyedMut
           </TableRow>
         ) : (
           items.map((product: Product) => (
-            <TableRow key={product.id}>
+            <TableRow key={product.id} className="cursor-pointer">
               <TableCell>{product.title}</TableCell>
               <TableCell><Price value={product.price} /></TableCell>
               <TableCell>{product.discountPercentage}%</TableCell>
@@ -93,7 +101,7 @@ const ProductTable = (props: {products: Product[] | undefined, mutator: KeyedMut
                 <Button onClick={()=> deleteProduct(product.id)} variant="light" size="sm" className="min-w-0">
                   <Delete color="error" />
                 </Button>
-                <Button onClick={() => editProduct(product)} variant="light" size="sm" className="min-w-0">
+                <Button onClick={() => openEditModal(product)} variant="light" size="sm" className="min-w-0">
                   <Edit />
                 </Button>
               </TableCell>

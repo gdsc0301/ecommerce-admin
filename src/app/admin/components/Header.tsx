@@ -9,11 +9,11 @@ import Link from "next/link";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
-
+  
   return (
-    <Navbar height={'96px'} onMenuOpenChange={setOpen} className="mb-10  flex justify-center shadow-md z-10 bg-white dark:bg-slate-800">
+    <Navbar maxWidth="xl" height={'96px'} onMenuOpenChange={setOpen} className="mb-10 shadow-md z-10 bg-white dark:bg-slate-800">
       <NavbarBrand>
-        <Link href={'/admin/products'}><VisieLogo /></Link>
+        <Link href={'/admin/products'}><VisieLogo className="w-[139px] h-[39px]" /></Link>
       </NavbarBrand>
       <HeaderNavigation />
 

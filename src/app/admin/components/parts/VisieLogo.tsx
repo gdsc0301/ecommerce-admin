@@ -1,15 +1,15 @@
-import { Image } from "@nextui-org/react";
+import Image from "next/image";
 
-const VisieLogo = () => {
+const VisieLogo = ({className = ''}) => {
     return (
-      <div className="visieLogo">
+      <div className={`visieLogo relative ${className}`}>
         <Image
-          width={136}
-          height={39}
           src="/logos/visie.svg"
           fetchPriority="high"
           loading="eager"
-          alt="Visie logo" />
+          alt="Visie logo"
+          className="object-contain"
+          fill />
       </div>
     )
 }

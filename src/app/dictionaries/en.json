@@ -10,5 +10,8 @@
   "Category"  : "Category",
   "Sale Price": "Sale Price",
   "Actions"   : "Actions",
-  "Add Product": "Add Product"
+  "Add Product": "Add Product",
+  "Back"      : "Back",
+  "Save"      : "Save",
+  "Login"     : "Login"
 }

@@ -1,8 +1,6 @@
 body {
   header {
     .visieLogo {
-      @apply relative w-fit;
-
       &::after {
         content: 'CMS';
         @apply

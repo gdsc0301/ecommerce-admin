@@ -7,7 +7,7 @@ import { useAppDispatch } from "../store";
 import Products, { Product } from "./models/Products";
 import useSWR from "swr";
 import { Button } from "@nextui-org/react";
-import { openProductModal, setProduct } from "./slices/Modal";
+import { openProductModal, setModalProduct } from "./slices/Modal";
 import { Add } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 
@@ -16,17 +16,9 @@ const ProductsPage = () => {
   const {data, error, isLoading, mutate} = useSWR(Products.API_PRODUCTS, Products.get);
 
   const handleAddProduct = () => {
-    appDispatch(setProduct({} as Product));
+    appDispatch(setModalProduct({} as Product));
     appDispatch(openProductModal());
   }
-
-  useEffect(() => {
-    // identify dark mode
-    const darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    }
-  }, []);
 
   return (
     <>
